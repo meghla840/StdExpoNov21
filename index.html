@@ -56,7 +56,8 @@ section h2{font-size:clamp(26px,4.5vw,38px);margin-bottom:8px;color:var(--pri)}
 .about div{display:grid;grid-template-columns:minmax(120px,200px) 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
 .about b{font-family:'Bricolage Grotesque','Hind Siliguri',sans-serif}
 .about span{color:var(--mute)}
-.reg{max-width:640px}
+.reg{max-width:680px;margin:0 auto}
+#register h2,#register .lead{text-align:center;margin-left:auto;margin-right:auto}
 @media (max-width:820px){.reg{grid-template-columns:1fr}.about div{grid-template-columns:1fr;gap:2px}}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}
 .card h3{font-size:21px;margin-bottom:16px}
@@ -98,6 +99,94 @@ input.bad,select.bad{border-color:#d93025}
 .hero .wrap>.gl{grid-column:2;grid-row:1 / span 7;grid-template-columns:1fr;margin:8px 0 0}
 .hero .wrap>.legend{grid-column:1 / -1;grid-row:8}
 }
+.arch{position:relative;height:460px;max-width:1000px;margin:26px auto 0}
+.arch .a1,.arch .a2{position:absolute;bottom:0;border:2px solid #b9d9f3;border-bottom:0;border-radius:999px 999px 0 0}
+.arch .a1{left:5%;right:5%;height:430px}
+.arch .a2{left:24%;right:24%;height:290px}
+.pl{position:absolute;display:flex;align-items:center;gap:10px;background:#fff;border-radius:999px;padding:8px 20px 8px 10px;box-shadow:0 6px 18px rgba(20,33,61,.1);font-weight:500;white-space:nowrap}
+.pl u{color:var(--pri);text-decoration:none;width:34px;height:34px;border-radius:50%;background:var(--alt);display:grid;place-items:center;font-size:18px}
+.p0{top:0;left:50%;transform:translateX(-50%)}
+.p1{top:96px;left:21%}.p2{top:186px;left:15%}.p3{top:276px;left:8%}.p4{top:366px;left:2%}
+.p5{top:96px;right:21%}.p6{top:186px;right:15%}.p7{top:276px;right:8%}.p8{top:366px;right:2%}
+.ctr{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:230px;height:230px;border-radius:50%;background:var(--navy);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 0 0 12px rgba(27,49,104,.12)}
+.ctr small{color:#9fb3e6}.ctr b{font:800 24px 'Bricolage Grotesque',sans-serif;line-height:1.15;margin:2px 0}.ctr span{color:#c9d6f5;font-size:15px}
+@media (max-width:820px){
+.arch{height:auto;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.arch .a1,.arch .a2{display:none}
+.arch .ctr{position:static;transform:none;grid-column:1 / -1;width:auto;height:auto;border-radius:16px;padding:18px;box-shadow:none}
+.arch .pl{position:static;transform:none;white-space:normal}
+}
+.rt{position:relative;max-width:920px;margin:34px auto 0}
+.rline{position:absolute;left:50%;top:10px;bottom:10px;width:3px;margin-left:-1.5px;background:var(--line);border-radius:3px}
+.rline i{display:block;width:100%;height:0;background:var(--sky);border-radius:3px}
+.rs{display:grid;grid-template-columns:1fr 56px 1fr;align-items:center;margin-bottom:22px}
+.nd{grid-column:2;grid-row:1;justify-self:center;width:48px;height:48px;border-radius:50%;background:var(--card);border:3px solid var(--line);display:grid;place-items:center;font-size:21px;position:relative;z-index:1;transition:background .4s,border-color .4s,transform .4s}
+.rc{position:relative;grid-row:1;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 20px;transition:opacity .6s,transform .6s,box-shadow .25s}
+.rs.l .rc{grid-column:1}.rs.r .rc{grid-column:3}
+.rc::after{content:"";position:absolute;top:50%;width:34px;height:3px;margin-top:-1.5px;background:var(--line);transition:background .6s}
+.rs.l .rc::after{right:-34px}.rs.r .rc::after{left:-34px}
+.rc small{display:block;color:var(--mute);font-size:13px}
+.rc b{display:block;color:var(--pri);font:700 18px 'Bricolage Grotesque','Hind Siliguri',sans-serif;margin:2px 0 4px}
+.rc span{color:var(--mute);font-size:15px;line-height:1.5}
+.rc:hover{box-shadow:0 10px 26px rgba(20,33,61,.12)}
+.js .rs .rc{opacity:0}
+.js .rs.l .rc{transform:translateX(-36px)}
+.js .rs.r .rc{transform:translateX(36px)}
+.js .rs .nd{transform:scale(.6)}
+.js .rs.on .rc{opacity:1;transform:none}
+.js .rs.on .nd{transform:none}
+.nd{color:var(--pri)}
+.rs.on .nd{color:#fff;background:var(--pri);border-color:var(--pri);animation:ping 1.2s ease-out 1}
+.rs.on .rc::after{background:var(--sky)}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(0,162,232,.55)}100%{box-shadow:0 0 0 18px rgba(0,162,232,0)}}
+@media (max-width:720px){
+.rline{left:24px}
+.rs{grid-template-columns:48px 1fr;column-gap:14px}
+.nd{grid-column:1}
+.rs.l .rc,.rs.r .rc{grid-column:2}
+.rc::after{display:none}
+.js .rs.l .rc,.js .rs.r .rc{transform:translateY(24px)}
+.js .rs.on.l .rc,.js .rs.on.r .rc{transform:none}
+}
+@media (prefers-reduced-motion:reduce){.js .rs .rc,.js .rs .nd{transition:none}.rs.on .nd{animation:none}}
+#faq h2,#faq .lead,#visa h2,#visa .lead,#visa .note{text-align:center;margin-left:auto;margin-right:auto}
+#visa .note{margin-top:18px}
+.cl{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:6px}
+.ck{display:flex;align-items:center;gap:8px;margin:0;padding:9px 12px;border:1.5px solid var(--line);border-radius:10px;font-weight:500;cursor:pointer;background:var(--bg)}
+.ck input{width:18px;height:18px;margin:0;accent-color:var(--pri)}
+.ck:has(input:checked){border-color:var(--pri);background:var(--alt)}
+.vn{display:grid;grid-template-columns:1fr 1.2fr;gap:18px;margin-top:20px}
+@media (max-width:820px){.vn{grid-template-columns:1fr}}
+.vd{background:var(--navy);color:#fff;border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:4px}
+.vd small{color:#9fb3e6}
+.vd b{font:800 clamp(52px,9vw,84px)/1 'Bricolage Grotesque',sans-serif}
+.vd span{font:600 22px 'Bricolage Grotesque',sans-serif}
+.vd em{font-style:normal;color:#c9d6f5}
+.tm{margin-top:14px;align-self:flex-start;border:1px solid #3a56a0;border-radius:999px;padding:6px 16px;font-weight:500}
+.vp{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px;display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.pin{width:48px;height:48px;border-radius:14px;background:var(--alt);display:grid;place-items:center;font-size:24px;margin-bottom:6px}
+.vp h3{font-size:26px;color:var(--pri)}
+.vp p{margin:0;color:var(--mute);font-size:17px}
+.vx{display:grid;grid-template-columns:1fr 1.25fr;max-width:960px;margin:28px auto 0;border-radius:24px;overflow:hidden;border:1px solid var(--line);box-shadow:0 18px 50px rgba(20,33,61,.14)}
+@media (max-width:820px){.vx{grid-template-columns:1fr}}
+.vdate{background:var(--navy);color:#fff;display:flex;flex-direction:column}
+.vhead{background:var(--sky);color:#08142e;padding:14px 26px;font:700 17px 'Bricolage Grotesque','Hind Siliguri',sans-serif}
+.vdays{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:26px 26px 8px}
+.vday{background:rgba(255,255,255,.08);border:1px solid #243a73;border-radius:16px;text-align:center;padding:18px 8px}
+.vday b{display:block;font:800 clamp(48px,8vw,72px)/1 'Bricolage Grotesque',sans-serif}
+.vday span{color:#c9d6f5}
+.vtime{display:flex;align-items:center;gap:10px;padding:18px 26px 26px;font-weight:500;margin-top:auto}
+.vtime svg{color:var(--sky);flex:none}
+.vplace{background:var(--card);display:flex;flex-direction:column}
+.vmap{height:190px;overflow:hidden;border-bottom:1px solid var(--line)}
+.vmap svg{display:block}
+.vmap .ring{transform-box:fill-box;transform-origin:center;animation:vp 2.2s ease-out infinite}
+@keyframes vp{0%{transform:scale(.5);opacity:.8}100%{transform:scale(2.6);opacity:0}}
+@media (prefers-reduced-motion:reduce){.vmap .ring{animation:none}}
+.vinfo{padding:24px 28px 28px;display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.vinfo h3{font-size:26px;color:var(--pri)}
+.vinfo p{margin:0;color:var(--mute);font-size:17px;display:flex;gap:10px;align-items:flex-start}
+.vinfo p svg{flex:none;margin-top:3px;color:var(--pri)}
 footer{background:var(--navy);color:#9fb3e6;padding:26px 0;font-size:14px}
 .btn.sm{padding:8px 18px;font-size:15px}
 .fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:25;box-shadow:0 6px 18px rgba(8,20,46,.3)}
@@ -150,7 +239,7 @@ details p{margin:0 0 14px;color:var(--mute)}
 </style>
 </head>
 <body>
-<nav class="nav"><div class="wrap nv"><a href="#top" aria-label="Top"><img id="navlogo" alt="Edu Abroad"></a><div class="links"><a href="#destinations">Destinations</a><a href="#why">Why attend</a><a href="#schedule">Schedule</a><a href="#visa">Visa guide</a><a href="#faq">FAQ</a></div><a class="btn sm" href="#register">Register</a></div></nav>
+<nav class="nav"><div class="wrap nv"><a href="#top" aria-label="Top"><img id="navlogo" alt="Edu Abroad"></a><div class="links"><a href="#destinations">Destinations</a><a href="#why">Why attend</a><a href="#visa">Visa guide</a><a href="#faq">FAQ</a></div><a class="btn sm" href="#register">Register</a></div></nav>
 <header class="hero" id="top">
  <div class="wrap">
   <img class="logo" alt="Edu Abroad" src="data:image/png;base64,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">
@@ -177,15 +266,11 @@ details p{margin:0 0 14px;color:var(--mute)}
 
 <section class="alt">
  <div class="wrap">
-  <h2 id="why">What happens at the expo</h2>
-  <p class="lead">&nbsp;</p>
-  <div class="about" style="margin-top:-14px">
-   <div><b>Counselling</b><span>দেশ, কোর্স আর budget অনুযায়ী এক-এক করে পরামর্শ।</span></div>
-   <div><b>University desks</b><span>Admission requirement, intake আর tuition সম্পর্কে সরাসরি তথ্য।</span></div>
-   <div><b>Scholarship info</b><span>কোন দেশে, কোন university-তে কী ধরনের scholarship বা fee waiver পাওয়া যেতে পারে, তা জানার সুযোগ।</span></div>
-   <div><b>Application help</b><span>Form পূরণ, document গোছানো আর deadline নিয়ে হাতে-কলমে সাহায্য।</span></div>
-   <div><b>Seminars</b><span>IELTS, study plan আর visa প্রস্তুতি নিয়ে ছোট সেশন।</span></div>
-   <div><b>Visa guidance</b><span>Document list আর interview প্রস্তুতি নিয়ে ধাপে ধাপে ব্যাখ্যা।</span></div>
+  <h2 id="why" style="text-align:center">What happens at the expo</h2>
+  <p class="lead" style="text-align:center;margin-left:auto;margin-right:auto">এক ছাদের নিচে যা যা পাবেন।</p>
+  <div class="arch"><i class="a1"></i><i class="a2"></i>
+   <div class="ctr"><small>Edu Abroad</small><b>Education Expo</b><span>21–22 Nov 2026</span></div>
+   <span class="pl p0"><u><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></u>Free Counselling</span><span class="pl p1"><u><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg></u>Scholarship Assistance</span><span class="pl p2"><u><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y1="18" y2="11"/><line x1="10" x2="10" y1="18" y2="11"/><line x1="14" x2="14" y1="18" y2="11"/><line x1="18" x2="18" y1="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg></u>University Admission</span><span class="pl p3"><u><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></svg></u>Profile Evaluation</span><span class="pl p4"><u><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></u>Instant Application</span><span class="pl p5"><u><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="8.5" cy="11" r="2"/><path d="M5.5 16c.6-1.6 1.7-2.5 3-2.5s2.4.9 3 2.5"/><path d="M14 10h5M14 14h4"/></svg></u>Visa Processing</span><span class="pl p6"><u><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/></svg></u>Documentation</span><span class="pl p7"><u><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></u>Interview Preparation</span><span class="pl p8"><u><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></u>Accommodation</span>
   </div>
  </div>
 </section>
@@ -196,14 +281,6 @@ details p{margin:0 0 14px;color:var(--mute)}
   <p class="lead">Expo-তে আসার আগে ছোট এই ভিডিওটি দেখে নিন।</p>
   <div class="video" id="vframe">Expo video coming soon</div>
   <a class="vlink" id="vlink" target="_blank" rel="noopener">YouTube-এ দেখুন</a>
- </div>
-</section>
-
-<section id="schedule">
- <div class="wrap">
-  <h2>Expo day schedule</h2>
-  <p class="lead">দিনের কর্মসূচি। সময় পরিবর্তন হলে registered নম্বরে জানানো হবে।</p>
-  <div class="sch" id="sch"></div>
  </div>
 </section>
 
@@ -218,52 +295,16 @@ details p{margin:0 0 14px;color:var(--mute)}
  </div>
 </section>
 
-<section id="visa" style="padding-top:0">
+<section id="visa" class="alt">
  <div class="wrap">
-  <h2>Student visa: what you can and cannot do</h2>
-  <p class="lead">প্রতিটি দেশের নিয়ম আলাদা। নিচের তথ্য সাধারণ গাইডলাইন; আবেদনের আগে সংশ্লিষ্ট দেশের দূতাবাস বা immigration ওয়েবসাইট অবশ্যই দেখে নিন।</p>
-  <div class="dd">
-   <div class="card can">
-    <h3 class="g">You can</h3>
-    <ul>
-     <li>বিশ্ববিদ্যালয়ের অফিসিয়াল অফার বা admission letter নিয়ে আবেদন করতে পারবেন।</li>
-     <li>পড়াশোনা ও থাকার খরচের জন্য নিজের বা পরিবারের প্রকৃত আর্থিক প্রমাণ দেখাতে পারবেন।</li>
-     <li>Sponsor এর সঙ্গে সম্পর্ক ও আয়ের উৎস কাগজে প্রমাণ করে জমা দিতে পারবেন।</li>
-     <li>কোর্স বেছে নেওয়ার কারণ ও ভবিষ্যৎ পরিকল্পনা নিজের ভাষায় বুঝিয়ে বলতে পারবেন।</li>
-     <li>দেশ অনুযায়ী অনুমোদিত সীমার মধ্যে part-time কাজ করতে পারবেন।</li>
-     <li>আগের visa refusal থাকলে তা সৎভাবে জানিয়ে নতুন আবেদন করতে পারবেন।</li>
-    </ul>
-   </div>
-   <div class="card cant">
-    <h3 class="r">You cannot</h3>
-    <ul>
-     <li>জাল বা বদলানো কাগজ জমা দিতে পারবেন না।</li>
-     <li>ব্যাংকে অল্প সময়ের জন্য ধার করা টাকা দেখিয়ে "ফান্ড" প্রমাণ করা যাবে না।</li>
-     <li>আগের refusal বা ভুল তথ্য লুকানো যাবে না।</li>
-     <li>"১০০% visa নিশ্চিত" বলে টাকা চাওয়া কারও কাছে টাকা দেওয়া যাবে না।</li>
-     <li>অনুমোদিত ঘণ্টার বেশি কাজ করা বা visa মেয়াদের পরে থেকে যাওয়া যাবে না।</li>
-     <li>Interview-র জন্য মুখস্থ করা বা অন্যের শেখানো উত্তর দেওয়া যাবে না।</li>
-    </ul>
-   </div>
-  </div>
-  <div class="rej">
-   <h3>Why a student visa may be rejected</h3>
-   <p>সবচেয়ে সাধারণ কারণগুলো আগেই জেনে রাখলে এড়ানো সহজ হয়। কেউই visa পাওয়ার নিশ্চয়তা দিতে পারে না; সিদ্ধান্ত নেয় দূতাবাস।</p>
-   <ul>
-    <li><b>জাল বা অসঙ্গতিপূর্ণ কাগজ।</b> তথ্যে গরমিল বা সন্দেহজনক document থাকলে আবেদন বাতিল হতে পারে, এমনকি ভবিষ্যতে নিষেধাজ্ঞাও আসতে পারে।</li>
-     <li><b>অপর্যাপ্ত বা অব্যাখ্যাত অর্থ।</b> খরচ মেটানোর মতো টাকা না থাকা, বা হঠাৎ জমা হওয়া টাকার উৎস দেখাতে না পারা।</li>
-    <li><b>কোর্সের সঙ্গে আগের পড়াশোনার মিল না থাকা।</b> কেন এই কোর্স, কেন এই দেশ, তার যুক্তি পরিষ্কার না হওয়া।</li>
-    <li><b>Genuine student হিসেবে বিশ্বাসযোগ্য না হওয়া।</b> পড়াশোনা শেষে পরিকল্পনা অস্পষ্ট থাকা বা শুধু কাজের উদ্দেশ্যে যাচ্ছেন বলে মনে হওয়া।</li>
-    <li><b>আগের refusal বা immigration সমস্যা লুকানো।</b></li>
-    <li><b>ফর্ম অসম্পূর্ণ বা ভুল।</b> প্রয়োজনীয় কাগজ বাদ পড়া, বা সময়মতো জমা না দেওয়া।</li>
-    <li><b>ভাষাগত দক্ষতার ঘাটতি।</b> IELTS বা অন্য প্রয়োজনীয় টেস্টের স্কোর চাহিদার নিচে থাকা।</li>
-    <li><b>Interview-তে অসঙ্গত উত্তর।</b> ফর্মে যা লিখেছেন আর মুখে যা বলছেন তার মধ্যে মিল না থাকা।</li>
-   </ul>
-  </div>
+  <h2>Why a student visa may be rejected</h2>
+  <p class="lead">সবচেয়ে সাধারণ কারণগুলো আগে থেকে জানা থাকলে এড়ানো সহজ হয়। প্রতিটি দেশের নিয়ম আলাদা, তাই আবেদনের আগে সংশ্লিষ্ট দেশের দূতাবাস বা immigration ওয়েবসাইট দেখে নিন।</p>
+  <div class="rt" id="rt"><div class="rline"><i id="rfill"></i></div><div class="rs l"><div class="nd"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M12 11v4"/><path d="M12 18h.01"/></svg></div><div class="rc"><small>Reason 1</small><b>জাল বা অসঙ্গতিপূর্ণ কাগজ</b><span>তথ্যে গরমিল বা সন্দেহজনক document থাকলে আবেদন বাতিল হতে পারে, ভবিষ্যতে নিষেধাজ্ঞাও আসতে পারে।</span></div></div><div class="rs r"><div class="nd"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12V8H6a2 2 0 0 1 0-4h12v4"/><path d="M4 6v12a2 2 0 0 0 2 2h14v-4"/><path d="M18 12a2 2 0 0 0 0 4h4v-4z"/></svg></div><div class="rc"><small>Reason 2</small><b>অপর্যাপ্ত বা অব্যাখ্যাত অর্থ</b><span>খরচ মেটানোর মতো টাকা না থাকা, বা হঠাৎ জমা হওয়া টাকার উৎস দেখাতে না পারা।</span></div></div><div class="rs l"><div class="nd"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div><div class="rc"><small>Reason 3</small><b>কোর্সের সঙ্গে পড়াশোনার মিল না থাকা</b><span>কেন এই কোর্স, কেন এই দেশ, তার যুক্তি পরিষ্কার না হওয়া।</span></div></div><div class="rs r"><div class="nd"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div><div class="rc"><small>Reason 4</small><b>Genuine student হিসেবে বিশ্বাসযোগ্য না হওয়া</b><span>পড়াশোনা শেষে পরিকল্পনা অস্পষ্ট থাকা, বা শুধু কাজের উদ্দেশ্যে যাচ্ছেন বলে মনে হওয়া।</span></div></div><div class="rs l"><div class="nd"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><line x1="2" x2="22" y1="2" y2="22"/></svg></div><div class="rc"><small>Reason 5</small><b>আগের refusal লুকানো</b><span>আগের visa refusal বা immigration সমস্যা জানানো বাধ্যতামূলক, লুকালে সমস্যা বাড়ে।</span></div></div><div class="rs r"><div class="nd"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div><div class="rc"><small>Reason 6</small><b>ফর্ম অসম্পূর্ণ বা ভুল</b><span>প্রয়োজনীয় কাগজ বাদ পড়া, বা সময়মতো জমা না দেওয়া।</span></div></div><div class="rs l"><div class="nd"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg></div><div class="rc"><small>Reason 7</small><b>ভাষাগত দক্ষতার ঘাটতি</b><span>IELTS বা অন্য প্রয়োজনীয় টেস্টের স্কোর চাহিদার নিচে থাকা।</span></div></div><div class="rs r"><div class="nd"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg></div><div class="rc"><small>Reason 8</small><b>Interview-তে অসঙ্গত উত্তর</b><span>ফর্মে যা লিখেছেন আর মুখে যা বলছেন তার মধ্যে মিল না থাকা, বা মুখস্থ উত্তর দেওয়া।</span></div></div></div>
+  <p class="note">কেউই visa পাওয়ার নিশ্চয়তা দিতে পারে না; সিদ্ধান্ত নেয় দূতাবাস। আমরা সাহায্য করি একটি সৎ ও সম্পূর্ণ আবেদন তৈরি করতে।</p>
  </div>
 </section>
 
-<section id="register" class="alt">
+<section id="register">
  <div class="wrap">
   <h2>Register for the expo</h2>
   <p class="lead">ফর্ম পূরণ করে Register চাপলেই আপনার Registration Slip (PDF) ডাউনলোড হবে।</p>
@@ -274,21 +315,23 @@ details p{margin:0 0 14px;color:var(--mute)}
     <input id="f-name" autocomplete="name"><div class="err" data-e="f-name"></div>
     <label for="f-phone">Phone number · ফোন নম্বর</label>
     <input id="f-phone" type="tel" inputmode="numeric" placeholder="01XXXXXXXXX" autocomplete="tel"><div class="err" data-e="f-phone"></div>
+    <label for="f-email">Email · ইমেইল</label>
+    <input id="f-email" type="email" autocomplete="email" placeholder="you@example.com"><div class="err" data-e="f-email"></div>
     <label for="f-edu">Last educational background · সর্বশেষ শিক্ষাগত যোগ্যতা</label>
     <select id="f-edu"><option value="">Select one</option><option>SSC / O-Level</option><option>HSC / A-Level</option><option>Diploma</option><option>Bachelor's (running or completed)</option><option>Master's (running or completed)</option><option>Other</option></select><div class="err" data-e="f-edu"></div>
-    <label for="f-country">Preferred country · পছন্দের দেশ <span style="color:var(--mute)">(optional)</span></label>
-    <select id="f-country"><option value="">Not decided yet</option></select>
+    <label>Preferred countries · পছন্দের দেশ <span style="color:var(--mute)">(ঐচ্ছিক, একাধিক বেছে নিতে পারেন)</span></label>
+    <div class="cl" id="f-countries"></div>
     <button type="button" class="btn" id="go" style="width:100%;margin-top:14px">Register &amp; download PDF</button>
     <div class="done" id="done"><div class="err" id="sheetwarn" style="display:none;margin-bottom:8px">ইন্টারনেট সমস্যার কারণে আপনার তথ্য আমাদের কাছে পৌঁছায়নি। এই slip সহ আমাদের সাথে যোগাযোগ করুন।</div>Registration slip ডাউনলোড হয়েছে। Expo-র দিন slip-টি সঙ্গে আনুন। <a href="#" id="again">আবার ডাউনলোড করুন</a></div>
    </div>
   </div>
  </div>
 </section>
-<section id="faq">
+<section id="faq" class="alt">
  <div class="wrap">
   <h2>Questions students ask</h2>
   <p class="lead">Expo-তে counsellor-দের কাছে নিজের দেশ ও কোর্স অনুযায়ী এই প্রশ্নগুলোর উত্তর জেনে নিন।</p>
-  <div style="max-width:760px">
+  <div style="max-width:760px;margin:0 auto">
    <details><summary>Do International Degrees Affect My Student Loans?</summary><p>Understand financial aid implications</p></details>
    <details><summary>Is a European Marketing Degree Recognized in the USA?</summary><p>Credential transfer and career portability across continents</p></details>
    <details><summary>What’s the Average Salary for International Marketing Professionals?</summary><p>Compensation expectations for global marketing careers</p></details>
@@ -308,12 +351,24 @@ details p{margin:0 0 14px;color:var(--mute)}
  </div>
 </section>
 
-<section id="venue" class="alt">
+<section id="venue">
  <div class="wrap">
-  <h2>Date and venue</h2>
-  <div class="two" style="margin-top:16px">
-   <div class="card"><h3 data-k="date"></h3><p class="note" style="margin:0">Registration Slip সঙ্গে আনুন।</p></div>
-   <div class="card"><h3 data-k="venue"></h3><a class="btn" id="dir" style="display:none;margin-top:6px;background:var(--navy)" target="_blank" rel="noopener">Get directions</a></div>
+  <h2 style="text-align:center">Date and venue</h2>
+  <p class="lead" style="text-align:center;margin-left:auto;margin-right:auto">দুই দিনের এই expo-তে আসুন আমাদের অফিসে।</p>
+  <div class="vx">
+   <div class="vdate">
+    <div class="vhead">November 2026</div>
+    <div class="vdays"><div class="vday"><b>21</b><span>Saturday</span></div><div class="vday"><b>22</b><span>Sunday</span></div></div>
+    <div class="vtime"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>11:00 am – 5:00 pm, both days</span></div>
+   </div>
+   <div class="vplace">
+    <div class="vmap"><svg viewBox="0 0 400 190" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" role="img" aria-label="Map illustration with a pin at the venue"><rect width="400" height="190" fill="#e8eff9"/><g fill="#d8e4f5"><rect x="14" y="14" width="86" height="52" rx="6"/><rect x="14" y="110" width="86" height="64" rx="6"/><rect x="132" y="14" width="96" height="40" rx="6"/><rect x="270" y="14" width="116" height="50" rx="6"/><rect x="288" y="112" width="98" height="62" rx="6"/><rect x="132" y="128" width="84" height="46" rx="6"/></g><g fill="none" stroke="#fff" stroke-linecap="round"><path d="M0 88 C100 80 300 100 400 84" stroke-width="12"/><path d="M116 0 C120 70 112 130 120 190" stroke-width="10"/><path d="M252 0 C248 60 258 130 250 190" stroke-width="10"/><path d="M0 150 L400 160" stroke-width="6"/></g><circle class="ring" cx="200" cy="92" r="14" fill="#d62839" fill-opacity=".35"/><path d="M200 64c-11 0-19 8-19 19 0 14 19 33 19 33s19-19 19-33c0-11-8-19-19-19z" fill="#d62839"/><circle cx="200" cy="83" r="7" fill="#fff"/></svg></div>
+    <div class="vinfo">
+     <h3>Edu Abroad Limited</h3>
+     <p><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><span>Confidence Center, Tower 2, 11-ABC<br>Shahjadpur, Gulshan, Dhaka</span></p>
+     <a class="btn" id="dir" style="display:none;margin-top:14px;background:var(--navy)" target="_blank" rel="noopener">Get directions</a>
+    </div>
+   </div>
   </div>
  </div>
 </section>
@@ -338,7 +393,7 @@ details p{margin:0 0 14px;color:var(--mute)}
 <script>
 // ===== Edit these before publishing =====
 var CONFIG={event:"Education Expo 2026",date:"21–22 November 2026",venue:"Edu Abroad Limited, Confidence Center, Tower 2, 11-ABC, Shahjadpur, Gulshan, Dhaka",
- youtube:"",sheetUrl:"https://script.google.com/macros/s/AKfycbySbYZe0dd1lOqS5dXk0GybPEiC4hLDI1IoWZxlmpGV6l6NUedEXADcUpPoinjOeeho/exec",start:"",mapQuery:"Confidence Center, Shahjadpur, Gulshan, Dhaka",phone:"",email:""}; // sheetUrl: Google Apps Script web app URL (see expo-sheet-script.gs); start: e.g. "2026-12-05T10:00:00+06:00" turns on the countdown; mapQuery: venue name for the directions link // youtube: paste the full video link here
+ youtube:"",sheetUrl:"",start:"2026-11-21T11:00:00+06:00",mapQuery:"Confidence Center, Shahjadpur, Gulshan, Dhaka",phone:"",email:""}; // sheetUrl: Google Apps Script web app URL (see expo-sheet-script.gs); start: e.g. "2026-12-05T10:00:00+06:00" turns on the countdown; mapQuery: venue name for the directions link // youtube: paste the full video link here
 var DEST=[["BG","Bulgaria","বুলগেরিয়া",[42.7,25.5],"BGR"],["CA","Canada","কানাডা",[56,-106],"CAN"],["GR","Greece","গ্রিস",[39,22],"GRC"],
 ["MY","Malaysia","মালয়েশিয়া",[4.2,102],"MYS"],["IT","Italy","ইতালি",[42.8,12.5],"ITA"],["HU","Hungary","হাঙ্গেরি",[47,19.5],"HUN"]];
 // ========================================
@@ -353,7 +408,7 @@ DEST.forEach(function(d){
  var c=document.createElement('div');c.className='dc';var nf=INFO[d[0]];c.innerHTML='<h3></h3><div class="in"></div><p></p>';
  c.children[0].textContent=d[1];var sm=document.createElement('small');sm.textContent=d[2];c.children[0].appendChild(sm);
  c.children[1].textContent='Main intakes: '+nf[0];c.children[2].textContent=nf[1];$('dest').appendChild(c);
- var o=document.createElement('option');o.textContent=d[1];$('f-country').appendChild(o);
+ var l=document.createElement('label');l.className='ck';var cb=document.createElement('input');cb.type='checkbox';cb.value=d[1];l.appendChild(cb);l.appendChild(document.createTextNode(d[1]));$('f-countries').appendChild(l);
 });
 (function(){
  var N=DEST.length,BD=[90.4,23.7],cur=0,token=0,visited={},arcs={},labelOn=false,drag=null,rot=BD.slice(),bs=[],G=false;
@@ -420,14 +475,15 @@ function validate(){
  var n=0,ph=/^(\+?88)?01[3-9]\d{8}$/;
  if($('f-name').value.trim().length<3)n+=bad('f-name','আপনার পুরো নাম লিখুন।');
  if(!ph.test($('f-phone').value.replace(/[\s-]/g,'')))n+=bad('f-phone','সঠিক বাংলাদেশি মোবাইল নম্বর দিন (01XXXXXXXXX)।');
+ if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($('f-email').value.trim()))n+=bad('f-email','সঠিক ইমেইল দিন।');
  if(!$('f-edu').value)n+=bad('f-edu','একটি অপশন বেছে নিন।');
  return n===0;
 }
 function regId(){var d=new Date(),p=function(x){return String(x).padStart(2,'0')};
  var r=Math.random().toString(36).slice(2,6).toUpperCase();return 'EXPO-'+String(d.getFullYear()).slice(2)+p(d.getMonth()+1)+p(d.getDate())+'-'+r}
 function build(){
- var d=new Date(),rows=[['Registration ID',last.id],['Name',last.name],['Phone',last.phone],['Last education',last.edu],
- ['Preferred country',last.country||'Not decided yet'],['Submitted on',d.toLocaleString('en-GB')]];
+ var d=new Date(),rows=[['Registration ID',last.id],['Name',last.name],['Phone',last.phone],['Email',last.email],['Last education',last.edu],
+ ['Preferred countries',last.country||'Not decided yet'],['Submitted on',d.toLocaleString('en-GB')]];
  $('r-title').textContent=CONFIG.event;var t=$('r-rows');t.textContent='';
  rows.forEach(function(r){var tr=document.createElement('tr');r.forEach(function(c){var td=document.createElement('td');td.textContent=c;tr.appendChild(td)});t.appendChild(tr)});
 }
@@ -440,11 +496,11 @@ function pdf(){
 }
 function send(){
  if(!CONFIG.sheetUrl){console.warn('CONFIG.sheetUrl is empty: registration was not saved to a sheet');return Promise.resolve(true)}
- var d={id:last.id,name:last.name,phone:last.phone,edu:last.edu,country:last.country};
+ var d={id:last.id,name:last.name,phone:last.phone,email:last.email,edu:last.edu,country:last.country};
  return fetch(CONFIG.sheetUrl,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)}).then(function(){return true}).catch(function(){return false})}
 $('go').onclick=function(){
  if(!validate()){var f=document.querySelector('.bad');if(f)f.focus();return}
- last={id:regId(),name:$('f-name').value.trim(),phone:$('f-phone').value.trim(),edu:$('f-edu').value,country:$('f-country').value};
+ last={id:regId(),name:$('f-name').value.trim(),phone:$('f-phone').value.trim(),email:$('f-email').value.trim(),edu:$('f-edu').value,country:[].slice.call(document.querySelectorAll('#f-countries input:checked')).map(function(i){return i.value}).join(', ')};
  var b=$('go');b.disabled=true;b.textContent='Preparing your PDF…';
  Promise.all([pdf(),send()]).then(function(r){$('done').style.display='block';$('sheetwarn').style.display=r[1]?'none':'block'}).catch(function(){alert('PDF তৈরি করা যায়নি। ইন্টারনেট চেক করে আবার চেষ্টা করুন।')})
   .then(function(){b.disabled=false;b.textContent='Register & download PDF'});
@@ -453,9 +509,8 @@ $('again').onclick=function(e){e.preventDefault();if(last)pdf()};
 
 // Sample numbers and sessions: replace with your real ones
 var STATS=[[String(DEST.length),'Study destinations'],['50+','Universities and partners'],['20+','Education counsellors'],['3','Seminars on visa, IELTS and scholarships']];
-var SCH=[['10:00 am','Doors open and registration desk'],['11:00 am','Seminar: choosing a country and course'],['12:30 pm','Seminar: student visa basics and common refusals'],['2:00 pm','IELTS and English test tips'],['3:30 pm','Scholarship Q&A'],['5:00 pm','Open counselling desks']];
 function rows(list,box){list.forEach(function(r){var d=document.createElement('div');d.innerHTML='<b></b><span></span>';d.children[0].textContent=r[0];d.children[1].textContent=r[1];$(box).appendChild(d)})}
-rows(STATS,'stats');rows(SCH,'sch');
+rows(STATS,'stats');
 $('navlogo').src=document.querySelector('.hero img.logo').src;
 (function(){if(!CONFIG.start)return;var t=new Date(CONFIG.start).getTime();if(isNaN(t))return;var el=$('cd');el.style.display='flex';var n=['Days','Hours','Minutes','Seconds'];
  function tick(){var s=Math.max(0,Math.floor((t-Date.now())/1000)),v=[Math.floor(s/86400),Math.floor(s%86400/3600),Math.floor(s%3600/60),s%60];
@@ -464,6 +519,16 @@ $('navlogo').src=document.querySelector('.hero img.logo').src;
 if(CONFIG.mapQuery){var dl=$('dir');dl.href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(CONFIG.mapQuery);dl.style.display='inline-block'}
 var ct=[CONFIG.phone,CONFIG.email].filter(Boolean).join(' / ');if(ct)$('contact').textContent=ct;
 if(window.IntersectionObserver){new IntersectionObserver(function(e){$('fab').style.display=e[0].isIntersecting?'none':'inline-block'},{threshold:.1}).observe($('register'))}
+
+(function(){var rt=$('rt');if(!rt)return;var steps=rt.querySelectorAll('.rs'),fill=$('rfill'),
+ rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+ document.documentElement.className+=' js';
+ if(rm||!window.IntersectionObserver){for(var i=0;i<steps.length;i++)steps[i].classList.add('on');fill.style.height='100%';return}
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.3});
+ for(var j=0;j<steps.length;j++)io.observe(steps[j]);
+ var tk=false;function upd(){tk=false;var r=rt.getBoundingClientRect(),p=(window.innerHeight*.65-r.top)/r.height;fill.style.height=Math.max(0,Math.min(1,p))*100+'%'}
+ function req(){if(!tk){tk=true;requestAnimationFrame(upd)}}
+ window.addEventListener('scroll',req,{passive:true});window.addEventListener('resize',req);upd()})();
 </script>
 </body>
 </html>
